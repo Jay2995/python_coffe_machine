@@ -100,25 +100,26 @@ def check_transaction_successful(total_received, coffe_cost):
         return True;
 
 
+def coffe_machine():
+    power_on = True
 
-power_on = True
+    while power_on:
+        coffee_choice = input("What would you like? (espresso/latte/cappuccino): ")
 
-while power_on:
-    coffee_choice = input("What would you like? (espresso/latte/cappuccino): ")
-
-    if coffee_choice == "off":
-        print("Machien urning off");
-        power_on = False;
-    elif coffee_choice == "report":
-        report(resources); 
-    
-    elif check_resource_sufficient(MENU[coffee_choice]["ingredients"]) :
-        total = process_coins()
-        if check_transaction_successful(total,MENU[coffee_choice]["cost"]):
-            make_coffe(MENU[coffee_choice]["ingredients"]);
-            report(resources)
+        if coffee_choice == "off":
+            print("Machien urning off");
+            power_on = False;
+        elif coffee_choice == "report":
+            report(resources); 
+        
+        elif check_resource_sufficient(MENU[coffee_choice]["ingredients"]) :
+            total = process_coins()
+            if check_transaction_successful(total,MENU[coffee_choice]["cost"]):
+                make_coffe(MENU[coffee_choice]["ingredients"]);
+                report(resources)
 
 
+coffe_machine();
 
 
 
